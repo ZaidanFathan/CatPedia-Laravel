@@ -63,8 +63,6 @@ class CatController extends Controller
      */
     public function edit(Cats $cat)
     {
-    //   $catBreed = $cat->with('breed')->get();
-    //     dd($catBreed[0]->id);
       return view('admin.cat_form', ['cat' => $cat->load('breed')]);
     }
 
@@ -74,8 +72,8 @@ class CatController extends Controller
     public function update(Request $request, Cats $cat)
     {
            $request->validate([
-            'cat_breed' => 'required|unique:cat_breeds,tipe',
-            'cat_origin' => 'required|unique:cats,cat_origin',
+            'cat_breed' => 'required',
+            'cat_origin' => 'required',
         ]);
 
         
