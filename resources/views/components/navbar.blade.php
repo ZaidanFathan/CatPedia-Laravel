@@ -13,6 +13,7 @@
           <li><a href="#beranda">Beranda</a></li>
           <li><a href="#informasi">Informasi</a></li>
           <li><a href="#form">Kontak Kami</a></li>
+          <li><a href="#">Login</a></li>
         </ul>
       </div>
     </nav>
