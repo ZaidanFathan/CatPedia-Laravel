@@ -6,7 +6,7 @@
 @section('content')
 <a href="{{ route('articles.create') }}" class="btn btn-success mb-3">+ Tambah Artikel</a>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive">
     <thead class="table-dark">
         <tr>
             <th>No</th>
@@ -37,7 +37,7 @@
                 Hapus
                 </button>
                 </form>
-                <a href="#" class="btn btn-primary btn-sm">View</a>
+                <a href="{{ route("articles.show", $article->id) }}" class="btn btn-primary btn-sm">View</a>
             </td>
         @empty
         <td>Data kosong</td>

@@ -24,7 +24,7 @@ class ArticleController extends Controller
     public function create()
     {
         $CatBreeds = Cats::with('breed')->get();
-        
+          
         return view("admin.article_form", ['article'=> null, 'breeds' => $CatBreeds]);
     }
 
@@ -36,7 +36,7 @@ class ArticleController extends Controller
      $request->validate([
             'judul' => 'required|unique:articles,judul|max:50',
             'deskripsi' => 'required|max:250',
-            'content_article' => 'required',
+            'content_article' => 'required|min:100',
             'cat_id' => 'required',
         ]);
 
@@ -53,9 +53,12 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
-        //
+        $article_data = $article->load('cat.breed');
+        $article_data->content = \formatParagraphs($article->content);
+        // dd($article->load('cat.breed'));
+        return view('admin.article', ['article' => $article_data]);
     }
 
     /**
