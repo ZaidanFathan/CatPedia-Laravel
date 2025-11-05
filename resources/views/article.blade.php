@@ -21,7 +21,7 @@
           <figure class="mb-4">
             <img
               class="img-fluid rounded"
-              src="https://dummyimage.com/900x400/ced4da/6c757d.jpg"
+              src="https://www.placecats.com/g/800/400  "
               alt="..."
             />
           </figure>
