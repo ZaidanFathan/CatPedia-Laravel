@@ -32,9 +32,6 @@
       </div>
     </div>
 
-    <div id="article-section">
-      <h1>Artikel</h1>
-    </div>
     <div id="search-bar">
       <input
         type="text"
@@ -44,117 +41,25 @@
       <button id="reset-btn">X</button>
     </div>
     <div class="container" id="informasi">
+        @forelse ($articles as $article)
       <div class="info-card">
         <div class="info-card-img">
           <img src="{{ asset("img/main coon.jpg") }}" alt="Maine Coon" />
         </div>
         <div class="info-card-content">
-          <h2>Maine Coon</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <h1>{{ $article->cat->breed->tipe }}</h1>
+          <h2>{{ $article->judul }}</h2>
+          <p>{{ $article->deskripsi }}</p>
           <p>
-            Optio, delectus molestias distinctio magnam dolores ipsum eos facere
-            vero reprehenderit accusantium?
+          <span>{{ $article->created_at->format('d M Y, H:i')  }}</span>
           </p>
+          <a href="{{ route('show.article', $article->id) }}">
           <button>Baca Selengkapnya</button>
+          </a>
         </div>
       </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/main coon.jpg") }}" alt="Maine Coon" />
-        </div>
-        <div class="info-card-content">
-          <h2>Maine Coon</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-          <p>
-            Optio, delectus molestias distinctio magnam dolores ipsum eos facere
-            vero reprehenderit accusantium?
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/persian.jpg") }}" alt="Persian Cat" />
-        </div>
-        <div class="info-card-content">
-          <h2>Persian</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-          <p>
-            Optio, delectus molestias distinctio magnam dolores ipsum eos facere
-            vero reprehenderit accusantium?
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/persian.jpg") }}" alt="Persian Cat" />
-        </div>
-        <div class="info-card-content">
-          <h2>Persian</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-          <p>
-            Optio, delectus molestias distinctio magnam dolores ipsum eos facere
-            vero reprehenderit accusantium?
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/russian blue.jpeg") }}" alt="Russian blue" />
-        </div>
-        <div class="info-card-content">
-          <h2>Russian Blue</h2>
-          <p>
-            Kucing Russian Blue berasal dari daerah pelabuhan Arkhangelsk,
-            Rusia. Kucing jenis ini memiliki bulu yang anggun dan mata hijau
-            yang berkilau.
-          </p>
-          <p>
-            Lapisan bulu Kucing Russian Blue sangat berbeda dengan jenis kucing
-            lainnya, yakni berwarna perak biru, berukuran pendek, tebal, dan
-            sangat halus.
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/russian blue.jpeg") }}" alt="Russian Blue" />
-        </div>
-        <div class="info-card-content">
-          <h2>Russian Blue</h2>
-          <p>
-            Kucing Russian Blue berasal dari daerah pelabuhan Arkhangelsk,
-            Rusia. Kucing jenis ini memiliki bulu yang anggun dan mata hijau
-            yang berkilau.
-          </p>
-          <p>
-            Lapisan bulu Kucing Russian Blue sangat berbeda dengan jenis kucing
-            lainnya, yakni berwarna perak biru, berukuran pendek, tebal, dan
-            sangat halus.
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-img">
-          <img src="{{ asset("img/russian blue.jpeg") }}" alt="Russian blue" />
-        </div>
-        <div class="info-card-content">
-          <h2>Russian Blue</h2>
-          <p>
-            Kucing Russian Blue berasal dari daerah pelabuhan Arkhangelsk,
-            Rusia. Kucing jenis ini memiliki bulu yang anggun dan mata hijau
-            yang berkilau.
-          </p>
-          <p>
-            Lapisan bulu Kucing Russian Blue sangat berbeda dengan jenis kucing
-            lainnya, yakni berwarna perak biru, berukuran pendek, tebal, dan
-            sangat halus.
-          </p>
-          <button>Baca Selengkapnya</button>
-        </div>
-      </div>
+        @empty
+        <h2>Tidak ada artikel</h2>
+      @endforelse
+    
     </div> 

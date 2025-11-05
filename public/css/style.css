@@ -147,18 +147,6 @@ input[type="submit"]:hover {
     background-color: blue;
 }
 
-/* .container-form {
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  margin: 200px auto 50px auto;
-  max-width: 900px;
-  min-height: 100vh;
-  border-radius: 12px;
-} */
-
 .container-form {
     display: flex;
     max-width: 900px;
@@ -185,54 +173,89 @@ label,
     font-family: "0xProto Nerd Font";
 }
 
+.info-card-content {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* === PERUBAHAN DIMULAI DARI SINI === */
 .container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    /* grid-template-columns: repeat(auto, minmax(220px, 1fr)); */
-    gap: 20px;
-    padding: 12px;
-
-    margin-bottom: 250px;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    ); /* grid fleksibel */
+    gap: 25px; /* jarak antar card */
+    justify-items: center;
+    padding: 20px;
+    max-width: 1100px; /* batas maksimum lebar grid */
+    margin: 0 auto 200px auto;
 }
 
 #article-section {
     padding: 2px;
     display: ruby;
-
     margin-left: 30px;
     border-bottom: 2px solid #0046ff;
 }
 
 .info-card {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
     background-color: #fff;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 350px;
+    max-width: 320px; /* batas lebar card */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .info-card img {
-    max-width: 120px;
-    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
     object-fit: cover;
 }
 
-.info-card-content p {
-    font-size: medium;
+.info-card-content {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.info-card-content h2 {
+    margin-bottom: 8px;
+    font-size: 17px;
+    text-align: left;
     font-weight: lighter;
 }
 
+.info-card-content h1 {
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: lighter;
+}
+
+.info-card-content p {
+    font-size: 0.95rem;
+    color: #333;
+}
+
 .info-card-content button {
-    padding: 20px;
-    border-radius: 12px;
+    padding: 12px 20px;
+    border-radius: 10px;
     border: 2px solid white;
     cursor: pointer;
     background-color: #ffec97;
-    margin-top: 5px;
+    margin-top: 10px;
+    align-self: center;
 }
+/* === SAMPAI SINI === */
 
 #search-bar {
     display: flex;
@@ -356,6 +379,7 @@ label,
     align-items: first baseline;
 }
 
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
     .burger {
         display: flex;
@@ -413,6 +437,7 @@ label,
     }
 }
 
+/* RESPONSIVE TABLET DAN HP */
 @media (max-width: 1024px) {
     .container-content {
         flex-direction: column;

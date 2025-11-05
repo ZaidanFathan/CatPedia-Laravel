@@ -12,7 +12,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // });
 
 
-Route::get("/", [HomeController::class, "index"]);
+Route::get("/", [HomeController::class, "index"])->name('home');
+Route::get('/article/{article}', [HomeController::class, "show"])->name('show.article');
 
 
 // Route::get("/articles", [ArticleController::class, "index"]);

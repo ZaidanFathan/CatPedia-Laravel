@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Cats;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleController extends Controller
 {
@@ -13,6 +14,16 @@ class ArticleController extends Controller
      */
    public function index(){
         $articles = Article::with("cat.breed")->get();
+
+        // Cache::put('test', 'testing', now()->addMinutes(1));
+        //  Cache::put('data', $articles, now()->addMinutes(4));
+        // $data_cache = Cache::get('test');
+        // $data_cache2 = Cache::get('data');
+        // dd([$data_cache, $data_cache2]);
+
+        // Cache::forget('test');
+
+
 
         // dd($articles);
         return view("admin.articles", ['articles' => $articles]);
