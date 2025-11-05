@@ -44,7 +44,7 @@
         @forelse ($articles as $article)
       <div class="info-card">
         <div class="info-card-img">
-          <img src="{{ asset("img/main coon.jpg") }}" alt="Maine Coon" />
+          <img src="https://placecats.com/neo_2/300/200" alt="Placeholder cat image" />
         </div>
         <div class="info-card-content">
           <h1>{{ $article->cat->breed->tipe }}</h1>
