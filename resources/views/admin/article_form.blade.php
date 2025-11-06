@@ -50,15 +50,17 @@
 
       <div class="mb-3">
     <label class="form-label">Pilih Ras Kucing</label>
-    <select class="form-select" aria-label="Default select example" name="cat_id">
-        <option value="" disabled selected>Pilih salah satu ras kucing</option>
-        @foreach ($breeds as $breed)
-            <option value="{{ $breed->id }}" 
-                {{ old('cat_id') == $breed->id ? 'selected' : '' }}>
-                {{ $breed->breed->tipe }}
-            </option>
-        @endforeach
-    </select>
+  <select class="form-select" aria-label="Default select example" name="cat_id">
+ 
+        Pilih salah satu ras kucing
+    </option>
+    @foreach ($breeds as $breed)
+        <option value="{{ $breed->id }}"
+            {{ old('cat_id', isset($article) ? $article->cat_id : '') == $breed->id ? 'selected' : '' }}>
+            {{ $breed->breed->tipe }}
+        </option>
+    @endforeach
+</select>
 
     @error('cat_id')
         <div class="form-text text-danger">{{ $message }}</div>

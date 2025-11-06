@@ -177,17 +177,13 @@ label,
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* === PERUBAHAN DIMULAI DARI SINI === */
 .container {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(280px, 1fr)
-    ); /* grid fleksibel */
-    gap: 25px; /* jarak antar card */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     justify-items: center;
     padding: 20px;
-    max-width: 1100px; /* batas maksimum lebar grid */
+    max-width: 1100px;
     margin: 0 auto 200px auto;
 }
 
@@ -255,7 +251,6 @@ label,
     margin-top: 10px;
     align-self: center;
 }
-/* === SAMPAI SINI === */
 
 #search-bar {
     display: flex;
@@ -630,4 +625,60 @@ label,
         margin-top: 50px;
         padding: 15px;
     }
+}
+
+/* === DROPDOWN USER === */
+.menu-user {
+    position: relative;
+}
+
+.user-name {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+}
+
+.user-name:hover {
+    color: slategrey;
+    text-decoration: underline;
+}
+
+.dropdown-user {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #050505;
+    border-radius: 8px;
+    min-width: 140px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    padding: 8px 0;
+    z-index: 999;
+}
+
+.dropdown-user li {
+    text-align: left;
+}
+
+.dropdown-user button {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    width: 100%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-user button:hover {
+    background-color: #333;
+}
+
+/* Tampilkan dropdown saat hover */
+.menu-user:hover .dropdown-user {
+    display: block;
 }

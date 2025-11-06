@@ -46,7 +46,7 @@ class ArticleController extends Controller
     {
      $request->validate([
             'judul' => 'required|unique:articles,judul|max:50',
-            'deskripsi' => 'required|max:250',
+            'deskripsi' => 'required|max:100',
             'content_article' => 'required|min:100',
             'cat_id' => 'required',
         ]);
@@ -77,6 +77,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+
         $CatBreeds = Cats::with('breed')->get();
         return view('admin.article_form', ['article' => $article->load('cat.breed'), 'breeds' => $CatBreeds]);
     }
@@ -87,9 +88,9 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
          $request->validate([
-            'judul' => 'required|max:50',
-            'deskripsi' => 'required',
-            'content_article' => 'required',
+            'judul' => 'required|min:50|max:100',
+            'deskripsi' => 'required|min:100',
+            'content_article' => 'required|min:100',
         ]);
 
         // dd($request);
