@@ -41,7 +41,7 @@
         </div>
 
         <div class="mb-3">
-        <label class="form-label">Example textarea</label>
+        <label class="form-label">Isi konten dari artikel</label>
         <textarea class="form-control"  rows="3" name="content_article">{{ old('content_article', $article->content ?? '') }}</textarea>
          @error('content_article')
                 <div class="form-text text-danger">{{ $message }}</div>
