@@ -45,8 +45,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
      $request->validate([
-            'judul' => 'required|unique:articles,judul|max:50',
-            'deskripsi' => 'required|max:100',
+            'judul' => 'required|unique:articles,judul|min:40|max:100',
+            'deskripsi' => 'required|min:100',
             'content_article' => 'required|min:100',
             'cat_id' => 'required',
         ]);
@@ -88,7 +88,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
          $request->validate([
-            'judul' => 'required|min:50|max:100',
+            'judul' => 'required|min:40|max:100',
             'deskripsi' => 'required|min:100',
             'content_article' => 'required|min:100',
         ]);
